@@ -1,7 +1,7 @@
 from distutils import extension
 import sys
 from pathlib import Path
-import ssg.extensions
+from ssg import extensions
 
 
 class Site:
@@ -29,7 +29,7 @@ class Site:
             )
 
     def build(self):
-        ssg.extensions.load_bundled()
+        extensions.load_bundled()
         self.dest.mkdir(parents=True, exist_ok=True)
         for path in self.source.rglob("*"):
             if path.is_dir():
